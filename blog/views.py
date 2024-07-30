@@ -1,3 +1,14 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+
+def main_page(request):
+    return HttpResponse("hii")
+
+
+def posts(request):
+    pass
+
+
+def single_post(request):
+    pass
