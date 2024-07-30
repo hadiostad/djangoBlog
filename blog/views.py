@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
 
 
 def main_page(request):
-    return HttpResponse("hii")
+    return render(request, 'blog/index.html')
 
 
 def posts(request):

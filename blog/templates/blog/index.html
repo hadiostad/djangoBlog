@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/index.css" %}">
+{% endblock %}
+
+{% block title %}
+    django Blog
+{% endblock %}
+
+{% block content %}
+    <header id="main-nav">
+        <h2>blog</h2>
+        <nav>
+            <a href="">All Posts</a>
+        </nav>
+    </header>
+
+    <section>
+        <header>
+            <img src="" alt="django tech blog">
+            <h2></h2>
+        </header>
+        <p>django tech blog</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>latest posts</h2>
+
+        <ul>
+            <li><a href=""><img src="" alt=""></a></li>
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>about us</h2>
+        <p>some text</p>
+    </section>
+{% endblock %}
