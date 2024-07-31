@@ -4,23 +4,18 @@
     <link rel="stylesheet" href="{% static "blog/includes/post.css" %}">
 {% endblock %}
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6 col-md-3">
-            <a href="{% url "single-post-page" "test-post" %}">
+
+        <div class="col-sm-6 col-md-4">
+            <a href="{% url "single-post-page" post.slug %}">
                 <div class="card  mb-3">
                     <!-- set a width on the image otherwise it will expand to full width       -->
-                    <img class="card-img-top img-fluid" src="" alt="Card image cap" width="400">
+                    <img class="card-img-top img-fluid" src="{% static "blog/img/"|add:post.image %}" alt="{{ post.title }}" width="400">
                     <div class="card-body">
-                        <h4 class="card-title">.card-title</h4>
-                        <p class="card-text">.card-text</p>
+                        <h4 class="card-title">{{ post.title }}</h4>
+                        <p class="card-text">{{ post.excerpt }}</p>
                     </div>
                 </div>
                 <!-- /.card -->
             </a>
         </div>
         <!-- /.col-sm-4 -->
-    </div>
-    <!-- /.row -->
-</div>
-<!-- /.container -->

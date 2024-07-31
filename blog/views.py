@@ -1,14 +1,14 @@
 from django.shortcuts import render
 from datetime import date
 
-posts = [
+all_posts = [
     {
         "slug": "microsoft-will-pay",
         "image": "microsoft.webp",
         "author": "Hadi Ostad",
         "date": date(2024, 7, 30),
-        "title": "Microsoft Employees News",
-        "excerpt": "Microsoft tells employees it will pay one-time cash awards of up to 25% of annual bonus",
+        "title": "Microsoft News",
+        "excerpt": "Microsoft tells employees it will pay one-time cash awards of up",
         "content": """
           Microsoft on Tuesday said it will pay a one-time performance-based cash award of up to 25% of annual bonus to rank-and-file employees.
           Salaried and hourly workers at the senior director level and below will be eligible for the award, Kathleen Hogan, Microsoft’s chief people officer, said in a memo distributed to employees. Junior-level employees can obtain an award amounting to as much as 25% of their bonus, while senior directors can get up to 10%.
@@ -41,8 +41,8 @@ posts = [
         "image": "samsung.webp",
         "author": "Hadi Ostad",
         "date": date(2024, 7, 30),
-        "title": "Samsung second quarter",
-        "excerpt": "Samsung second-quarter operating profit soars 1,458% as AI demand remains strong; results top estimates",
+        "title": "Samsung quarter",
+        "excerpt": "Samsung second-quarter operating profit soars 1,458%",
         "content": """
             The South Korean giant said robust demand for high-bandwidth as well as
             conventional memory, such as regular dynamic random access memory, from
@@ -56,8 +56,16 @@ posts = [
 ]
 
 
+def get_date(post):
+    return post['date']
+
+
 def main_page(request):
-    return render(request, 'blog/index.html')
+    #sorted_posts = all_posts.sort(key=get_date)
+    #latest_posts = sorted_posts[-3:]
+    return render(request, 'blog/index.html', {
+        "posts": all_posts
+    })
 
 
 def posts(request):
