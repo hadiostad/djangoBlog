@@ -1,0 +1,24 @@
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/includes/post.css" %}">
+{% endblock %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-3">
+            <div class="card  mb-3">
+                <!-- set a width on the image otherwise it will expand to full width       -->
+                <img class="card-img-top img-fluid" src="" alt="Card image cap" width="400">
+                <div class="card-body">
+                    <h4 class="card-title">.card-title</h4>
+                    <p class="card-text">.card-text</p>
+                </div>
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col-sm-4 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
