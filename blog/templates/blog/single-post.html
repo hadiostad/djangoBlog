@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/single-post.css" %}">
+{% endblock %}
+
+{% block title %}
+    Posts
+{% endblock %}
+
+{% block content %}
+    <section id="summary">
+        <h2>post title</h2>
+        <article>
+            <img src="{% static "" %}" alt="">
+            <address>Hadi Ostad</address>
+            <div>last update on <time>july 31</time></div>
+        </article>
+    </section>
+    <main>
+        <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups</p>
+    </main>
+{% endblock %}
