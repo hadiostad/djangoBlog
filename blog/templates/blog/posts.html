@@ -1,16 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
-
-
 {% block css_files %}
     <link rel="stylesheet" href="{% static "blog/posts.css" %}">
     <link rel="stylesheet" href="{% static "blog/includes/post.css" %}">
 {% endblock %}
-
-{% block title %}
-    Posts
-{% endblock %}
-
+{% block title %} Posts {% endblock %}
 {% block content %}
     <section id="all-posts">
         <h3>All Posts</h3>
@@ -19,9 +13,7 @@
                 {% for post in all_posts %}
                     {% include 'blog/includes/post.html' %}
                 {% endfor %}
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
     </section>
 {% endblock %}

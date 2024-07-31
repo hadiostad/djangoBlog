@@ -14,13 +14,13 @@
 </head>
 <body>
 <header>
-        <nav class="navbar bg-light">
-            <div class="container-fluid">
-                <a href="{% url "main-page" %}" class="navbar-brand">djangoBlog</a>
-                <a href="{% url "posts-page" %}" class="d-flex nav-link">All Posts</a>
-            </div>
-        </nav>
-    </header>
+    <nav class="navbar bg-light">
+        <div class="container-fluid">
+            <a href="{% url "main-page" %}" class="navbar-brand">djangoBlog</a>
+            <a href="{% url "posts-page" %}" class="d-flex nav-link">All Posts</a>
+        </div>
+    </nav>
+</header>
 {% block content %}{% endblock %}
 </body>
 </html>

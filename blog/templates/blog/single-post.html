@@ -1,14 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block css_files %}
     <link rel="stylesheet" href="{% static "blog/single-post.css" %}">
 {% endblock %}
-
-{% block title %}
-    Posts
-{% endblock %}
-
+{% block title %} {{ post.title }} {% endblock %}
 {% block content %}
     <section id="summary">
         <h2>{{ post.title }}</h2>
@@ -18,7 +13,5 @@
             <div>last update on <time>{{ post.date|date:"d M Y" }}</time></div>
         </article>
     </section>
-    <main>
-        {{ post.content|linebreaks }}
-    </main>
+    <main> {{ post.content|linebreaks }} </main>
 {% endblock %}

@@ -1,16 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
-
-
 {% block css_files %}
     <link rel="stylesheet" href="{% static "blog/index.css" %}">
     <link rel="stylesheet" href="{% static "blog/includes/post.css" %}">
 {% endblock %}
-
-{% block title %}
-    django Blog
-{% endblock %}
-
+{% block title %} django Blog {% endblock %}
 {% block content %}
     <section>
         <div class="container">
@@ -30,7 +24,6 @@
             </div>
         </div>
     </section>
-
     <section id="latest-posts">
         <h3>Latest Posts</h3>
         <div class="container">
@@ -38,12 +31,9 @@
                 {% for post in posts %}
                     {% include 'blog/includes/post.html' %}
                 {% endfor %}
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
     </section>
-
     <section id="about">
         <div class="about-section">
             <h1>About Us</h1>
