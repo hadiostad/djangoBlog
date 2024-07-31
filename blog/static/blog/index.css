@@ -9,3 +9,23 @@ html {
 body {
     margin: 0;
 }
+
+section {
+    margin-top: 2rem;
+}
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+

@@ -11,31 +11,62 @@
 {% endblock %}
 
 {% block content %}
-    <header id="main-nav">
-        <h2>blog</h2>
-        <nav>
-            <a href="">All Posts</a>
+    <header>
+        <nav class="navbar bg-light">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand">djangoBlog</a>
+                <a href="#" class="d-flex nav-link">All Posts</a>
+            </div>
         </nav>
     </header>
 
     <section>
-        <header>
-            <img src="" alt="django tech blog">
-            <h2></h2>
-        </header>
-        <p>django tech blog</p>
+        <div class="container">
+            <div class="row d_flex">
+                <div class="col-md-6">
+                    <div>
+                        <h3>
+                            Welcome<br> To djangoBlog
+                        </h3>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="banner_img">
+                        <figure><img class="img_responsive" src="images/banner_img.png"></figure>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="latest-posts">
-        <h2>latest posts</h2>
-
-        <ul>
-            <li><a href=""><img src="" alt=""></a></li>
-        </ul>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="card  mb-3">
+                        <!-- set a width on the image otherwise it will expand to full width       -->
+                        <img class="card-img-top img-fluid"
+                             src="https://dummyimage.com/400x200/563d7c/ffffff&text=.card-img-topfff&text=.card-img-top"
+                             alt="Card image cap" width="400">
+                        <div class="card-body">
+                            <h4 class="card-title">.card-title</h4>
+                            <p class="card-text">.card-text</p>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col-sm-4 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
     </section>
 
     <section id="about">
-        <h2>about us</h2>
-        <p>some text</p>
+        <div class="about-section">
+            <h1>About Us</h1>
+            <p>Some text about who we are and what we do.</p>
+            <p>Resize the browser window to see that this page is responsive by the way.</p>
+        </div>
     </section>
 {% endblock %}
