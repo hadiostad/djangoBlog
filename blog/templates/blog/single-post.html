@@ -11,14 +11,14 @@
 
 {% block content %}
     <section id="summary">
-        <h2>post title</h2>
+        <h2>{{ post.title }}</h2>
         <article>
-            <img src="{% static "" %}" alt="">
-            <address>Hadi Ostad</address>
-            <div>last update on <time>july 31</time></div>
+            <img src="{% static "blog/img/"|add:post.image %}" alt="">
+            <address>{{ post.author }}</address>
+            <div>last update on <time>{{ post.date|date:"d M Y" }}</time></div>
         </article>
     </section>
     <main>
-        <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups</p>
+        {{ post.content|linebreaks }}
     </main>
 {% endblock %}
