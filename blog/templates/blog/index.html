@@ -4,6 +4,7 @@
 
 {% block css_files %}
     <link rel="stylesheet" href="{% static "blog/index.css" %}">
+    <link rel="stylesheet" href="{% static "blog/includes/post.css" %}">
 {% endblock %}
 
 {% block title %}
@@ -11,28 +12,19 @@
 {% endblock %}
 
 {% block content %}
-    <header>
-        <nav class="navbar bg-light">
-            <div class="container-fluid">
-                <a href="#" class="navbar-brand">djangoBlog</a>
-                <a href="#" class="d-flex nav-link">All Posts</a>
-            </div>
-        </nav>
-    </header>
-
     <section>
         <div class="container">
             <div class="row d_flex">
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <div>
                         <h3>
                             Welcome<br> To djangoBlog
                         </h3>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-9">
                     <div class="banner_img">
-                        <img alt="" width="50%" src="{% static "blog/img/django-logo-positive.png" %}">
+                        <img alt="" width="100%" src="{% static "blog/img/django-logo-positive.png" %}">
                     </div>
                 </div>
             </div>
@@ -40,24 +32,8 @@
     </section>
 
     <section id="latest-posts">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-md-3">
-                    <div class="card  mb-3">
-                        <!-- set a width on the image otherwise it will expand to full width       -->
-                        <img class="card-img-top img-fluid" src="" alt="Card image cap" width="400">
-                        <div class="card-body">
-                            <h4 class="card-title">.card-title</h4>
-                            <p class="card-text">.card-text</p>
-                        </div>
-                    </div>
-                    <!-- /.card -->
-                </div>
-                <!-- /.col-sm-4 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
+        <h3>Latest Posts</h3>
+        {% include 'blog/includes/post.html' %}
     </section>
 
     <section id="about">

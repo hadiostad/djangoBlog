@@ -7,7 +7,7 @@ def main_page(request):
 
 
 def posts(request):
-    pass
+    return render(request, 'blog/posts.html')
 
 
 def single_post(request):
