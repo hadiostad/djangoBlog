@@ -19,5 +19,5 @@ class Post(models.Model):
     date = models.DateField(auto_now=True)
     slug = models.SlugField(unique=True, db_index=True)
     content = models.TextField(validators=[MinLengthValidator(50)])
-    author = models.ForeignKey(Author, on_delete=models.SET_NULL, related_name="posts")  # one-to-many Relationship
+    author = models.ForeignKey(Author, null=True, on_delete=models.SET_NULL, related_name="posts")  # one-to-many Relationship
     tags = models.ManyToManyField(Tag)
