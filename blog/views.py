@@ -1,24 +1,26 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Post
 
 
-all_posts = Post.objects.all().order_by('-date')
+
 
 
 def main_page(request):
+    latest_posts = Post.objects.all().order_by('-date')[:3]
     return render(request, 'blog/index.html', {
-        "posts": all_posts
+        "posts": latest_posts
     })
 
 
 def posts(request):
+    all_posts = Post.objects.all().order_by('-date')
     return render(request, 'blog/posts.html', {
         "all_posts": all_posts
     })
 
 
 def single_post(request, slug):
-    recognized_post = next(post for post in all_posts if post['slug'] == slug)
+    recognized_post = get_object_or_404(Post, slug=slug)
     return render(request, 'blog/single-post.html', {
         'post': recognized_post
     })

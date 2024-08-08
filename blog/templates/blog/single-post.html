@@ -8,7 +8,7 @@
     <section id="summary">
         <h2>{{ post.title }}</h2>
         <article>
-            <img src="{% static "blog/img/"|add:post.image %}" alt="">
+            <img src="{% static "blog/img/"|add:post.image_name %}" alt="">
             <address>{{ post.author }}</address>
             <div>last update on <time>{{ post.date|date:"d M Y" }}</time></div>
         </article>
