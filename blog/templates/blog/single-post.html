@@ -21,10 +21,18 @@
         </article>
     </section>
     <main> {{ post.content|linebreaks }} </main>
-    <div>
+    
+    <section id="comment-form">
+        <h2>Your Comment</h2>
         <form>
-            {{ comment_form }}
+            {% for form_field in comment_form %}
+                <div class="form-control">
+                    {{ form_field.label_tag }}
+                    {{ form_field }}
+                    {{ form_field.errors }}
+                </div>
+            {% endfor %}
             <button>Save Comment</button>
         </form>
-    </div>
+    </section>
 {% endblock %}
