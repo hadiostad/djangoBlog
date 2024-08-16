@@ -15,8 +15,15 @@
         <article>
             <img src="{{ post.image.url }}" alt="">
             <address><a href="mailto:{{ post.author.email_address }}">{{ post.author }}</a></address>
-            <div>last update on <time>{{ post.date|date:"d M Y" }}</time></div>
+            <div>last update on
+                <time>{{ post.date|date:"d M Y" }}</time>
+            </div>
         </article>
     </section>
     <main> {{ post.content|linebreaks }} </main>
+    <div>
+        <form>
+            
+        </form>
+    </div>
 {% endblock %}
