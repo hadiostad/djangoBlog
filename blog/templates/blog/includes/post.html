@@ -5,7 +5,7 @@
 <div class="col-sm-6 col-md-4">
     <a href="{% url "single-post-page" post.slug %}">
         <div class="card  mb-3">
-            <img class="card-img-top img-fluid" src="{% static "blog/img/"|add:post.image_name %}" alt="{{ post.title }}"
+            <img class="card-img-top img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}"
                  width="400">
             <div class="card-body">
                 <h4 class="card-title">{{ post.title }}</h4>
