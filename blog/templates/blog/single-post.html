@@ -5,13 +5,26 @@
 {% endblock %}
 {% block title %} {{ post.title }} {% endblock %}
 {% block content %}
+    
+{#    Checking if Form Submit Failed #}
+    {% if comment_form %}
+    <div class="error-box">
+        <h6>Saving the Comment Failed</h6>
+        <p>Please check the comments form below the post and fix your errors</p>
+        <a href="#comment-form">Fix!</a>
+    </div>
+    {% endif %}
+    
     <section id="summary">
         <h2>{{ post.title }}</h2>
+    
+        {# Tags #}
         <div>
             {% for tag in post_tags %}
                 <span class="tag">{{ tag.caption }}</span>
             {% endfor %}
         </div>
+    
         <article>
             <img src="{{ post.image.url }}" alt="">
             <address><a href="mailto:{{ post.author.email_address }}">{{ post.author }}</a></address>
@@ -19,21 +32,25 @@
                 <time>{{ post.date|date:"d M Y" }}</time>
             </div>
         </article>
+    
     </section>
+    
     <main> {{ post.content|linebreaks }} </main>
     
+    {#    Comment Form #}
     <section id="comment-form">
         <h2>Your Comment</h2>
         <form action="{% url "single-post-page" post.slug %}" method="POST">
             {% csrf_token %}
             {% for form_field in comment_form %}
-                <div class="form-control">
+                <div class="form-control {% if form_field.errors %}error{% endif %}">
                     {{ form_field.label_tag }}
                     {{ form_field }}
                     {{ form_field.errors }}
                 </div>
             {% endfor %}
-            <button>Save Comment</button>
+            <button type="submit">Save Comment</button>
         </form>
     </section>
+    
 {% endblock %}

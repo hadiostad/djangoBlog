@@ -1,5 +1,5 @@
 #summary {
-  margin: 8rem auto 3rem auto;
+  margin: 2rem auto 3rem auto;
   padding: 2rem;
   width: 90%;
   max-width: 90rem;
@@ -75,9 +75,9 @@ main {
 
 #comment-form button {
   font: inherit;
-  background-color: #390281;
+  background-color: #092E20;
   color: white;
-  border: 1px solid #390281;
+  border: 1px solid #092E20;
   padding: 0.5rem 1.5rem;
   border-radius: 6px;
   cursor: pointer;
@@ -85,8 +85,8 @@ main {
 
 #comment-form button:hover,
 #comment-form button:active {
-  background-color: #4f0ba7;
-  border-color: #4f0ba7;
+  background-color: #092E20;
+  border-color: #092E20;
 }
 
 .form-control {
@@ -107,4 +107,45 @@ main {
   padding: 0.25rem;
   border-radius: 6px;
   border: 1px solid #ccc;
+}
+
+.errorlist {
+  list-style: none;
+  margin: 0.3rem 0;
+  padding: 0;
+  color: #b02a37;
+}
+
+.error label {
+  color: #b02a37;
+}
+
+.error input,
+.error textarea{
+  border-color: #b02a37;
+  background-color: #f3dadb;
+}
+
+.error-box{
+  margin: 1rem;
+  padding: 0.5rem;
+  border-left: 2px solid #b02a37;
+  background-color: #f3dadb;
+  width: 100%;
+  max-width: 30rem;
+
+}
+
+.error-box p{
+  font-size: 14px;
+}
+
+.error-box a{
+  text-decoration: none;
+  border: 1px solid #b02a37;
+  background-color: #b02a37;
+  color: white;
+  padding: 0.2rem 0.8rem;
+  margin: 0.2rem;
+  border-radius: 6px;
 }
