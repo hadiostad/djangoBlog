@@ -63,6 +63,21 @@ main {
     border-radius: 8px;
 }
 
+#favourite {
+    margin: 2rem 0;
+}
+
+#favourite button{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+#favourite button span{
+    font-size:4rem;
+    color: goldenrod;
+}
+
 #comment-form {
     margin: 3rem auto;
     width: 90%;

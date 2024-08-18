@@ -55,3 +55,9 @@ class PostDetailView(View):
             "comment_form": comment_form
         }
         return render(request, "blog/single-post.html", context)
+
+
+class AddFavouriteView(View):
+    def post(self, request):
+        pass
+
