@@ -7,7 +7,7 @@
 {% block content %}
     
 {#    Checking if Form Submit Failed #}
-    {% if comment_form %}
+    {% if comment_form.errors %}
     <div class="error-box">
         <h6>Saving the Comment Failed</h6>
         <p>Please check the comments form below the post and fix your errors</p>
@@ -51,6 +51,17 @@
             {% endfor %}
             <button type="submit">Save Comment</button>
         </form>
+    </section>
+    
+    <section>
+        <ul>
+            {% for comment in comments %}
+                <li>
+                    <h3>{{ comment.user_name }}</h3>
+                    <p>{{ comment.text|linebreaks }}</p>
+                </li>
+            {% endfor %}
+        </ul>
     </section>
     
 {% endblock %}
