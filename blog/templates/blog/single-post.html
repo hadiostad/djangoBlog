@@ -28,7 +28,7 @@
         <div id="favourite">
             <form action="{% url "add-favourite" %}" method="POST">
                 {% csrf_token %}
-                <inpu type="hidden" value="{{ post.id }}" name="post_id"></inpu>
+                <input type="hidden" value="{{ post.id }}" name="post_id">
                 <button><span>&#9734;</span></button>
             </form>
         </div>
