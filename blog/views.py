@@ -28,13 +28,23 @@ class PostListView(ListView):
 
 
 class PostDetailView(View):
+    def favourite_posts(self, request, post_id):
+        favourite_posts = request.session.get("favourite_posts")
+        if favourite_posts is not None:
+            is_favourite_posts = post_id in favourite_posts
+        else:
+            is_favourite_posts = False
+
+        return is_favourite_posts
+
     def get(self, request, slug):
         post = Post.objects.get(slug=slug)
         context = {
             "post": post,
             "post_tags": post.tags.all(),
             "comment_form": CommentForm(),
-            "comments": post.comments.all().order_by("-id")
+            "comments": post.comments.all().order_by("-id"),
+            "favourite": self.favourite_posts(request, post.id)
         }
         return render(request, "blog/single-post.html", context)
 
@@ -52,7 +62,9 @@ class PostDetailView(View):
         context = {
             "post": post,
             "post_tags": post.tags.all(),
-            "comment_form": comment_form
+            "comment_form": comment_form,
+            "comments": post.comments.all().order_by("-id"),
+            "favourite": self.favourite_posts(request, post.id)
         }
         return render(request, "blog/single-post.html", context)
 
@@ -82,9 +94,9 @@ class AddFavouriteView(View):
 
         if post_id not in favourite_posts:
             favourite_posts.append(post_id)
-            request.session["favourite_posts"] = favourite_posts
 
         else:
             favourite_posts.remove(post_id)
 
+        request.session["favourite_posts"] = favourite_posts
         return HttpResponseRedirect("/")
