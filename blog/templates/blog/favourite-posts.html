@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block css_files %}
-    <link rel="stylesheet" href="{% static "" %}">
+    <link rel="stylesheet" href="{% static "blog/favourite-posts.css" %}">
 {% endblock %}
 {% block title %} My Favourite {% endblock %}
 
 {% block content %}
-    <section>
+    <section id="favourite-posts">
     {% if has_posts %}
         <ul>
             {% for post in posts %}
