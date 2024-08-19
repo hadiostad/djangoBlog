@@ -58,6 +58,33 @@ class PostDetailView(View):
 
 
 class AddFavouriteView(View):
-    def post(self, request):
-        pass
+    def get(self, request):
+        favourite_posts = request.session.get("favourite_posts")
+        context = {}
+        if favourite_posts is None or len(favourite_posts) == 0:
+            context["posts"] = []
+            context["has_posts"] = False
+        else:
+            posts = Post.objects.filter(id__in=favourite_posts)
+            context["posts"] = posts
+            context["has_posts"] = True
 
+        return render(request, "blog/favourite-posts.html", context)
+
+    def post(self, request):
+        favourite_posts = request.session.get("favourite_posts")
+
+        if favourite_posts is None:
+            favourite_posts = []
+            print("hi")
+
+        post_id = int(request.POST["post_id"])
+
+        if post_id not in favourite_posts:
+            favourite_posts.append(post_id)
+            request.session["favourite_posts"] = favourite_posts
+
+        else:
+            favourite_posts.remove(post_id)
+
+        return HttpResponseRedirect("/")
