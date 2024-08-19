@@ -5,8 +5,8 @@
 {% endblock %}
 {% block title %} {{ post.title }} {% endblock %}
 {% block content %}
-
-    {#    Checking if Form Submit Failed #}
+    
+    {% comment %} Checking if Form Submit Failed {% endcomment %}
     {% if comment_form.errors %}
         <div class="error-box">
             <h6>Saving the Comment Failed</h6>
@@ -20,6 +20,7 @@
 
         {# Tags #}
         <div>
+            {% comment %} Renders a list of the tag {% endcomment %}
             {% for tag in post_tags %}
                 <span class="tag">{{ tag.caption }}</span>
             {% endfor %}
@@ -30,16 +31,18 @@
                 {% csrf_token %}
                 <input type="hidden" value="{{ post.id }}" name="post_id">
                 <button>
+                    {% comment %} checking if post is favourite {% endcomment %}
                     {% if favourite %}
                         <span>&#9733;</span>
-                    {% else %}    
-                    	<span>&#9734;</span>
+                    {% else %}
+                        <span>&#9734;</span>
                     {% endif %}
                 </button>
             </form>
         </div>
 
         <article>
+            {% comment %} Post Detail {% endcomment %}
             <img src="{{ post.image.url }}" alt="">
             <address><a href="mailto:{{ post.author.email_address }}">{{ post.author }}</a></address>
             <div>last update on
@@ -51,11 +54,12 @@
 
     <main> {{ post.content|linebreaks }} </main>
 
-    {#    Comment Form #}
+    {# Comment Form #}
     <section id="comment-form">
         <h2>Your Comment</h2>
         <form action="{% url "single-post-page" post.slug %}" method="POST">
             {% csrf_token %}
+            {% comment %} Renders Form field {% endcomment %}
             {% for form_field in comment_form %}
                 <div class="form-control {% if form_field.errors %}error{% endif %}">
                     {{ form_field.label_tag }}
@@ -69,6 +73,7 @@
 
     <section id="comments">
         <ul>
+            {% comment %} Renders a list of the comment {% endcomment %}
             {% for comment in comments %}
                 <li>
                     <h3>{{ comment.user_name }}</h3>

@@ -28,11 +28,12 @@
         <h3>Latest Posts</h3>
         <div class="container">
             <div class="row">
+                {% comment %} Renders a list of the latest posts {% endcomment %}
                 {% for post in posts %}
                     {% include 'blog/includes/post.html' %}
                 {% endfor %}
-            </div> <!-- /.row -->
-        </div> <!-- /.container -->
+            </div>
+        </div>
     </section>
     <section id="about">
         <div class="about-section">

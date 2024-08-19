@@ -7,8 +7,10 @@
 
 {% block content %}
     <section id="favourite-posts">
+    {% comment %} if has favourite post %}{% endcomment %}
     {% if has_posts %}
         <ul>
+            {% comment %} Render Add-Favourite Posts{% endcomment %}
             {% for post in posts %}
             	<li><a href="{% url "single-post-page" post.slug %}">{{ post.title }}</a></li>
             {% endfor %}

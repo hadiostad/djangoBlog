@@ -2,6 +2,7 @@
 {% block css_files %}
     <link rel="stylesheet" href="{% static "blog/includes/post.css" %}">
 {% endblock %}
+{% comment %} Render Post Title, Excerpt, Image And Slug {% endcomment %}
 <div class="col-sm-6 col-md-4">
     <a href="{% url "single-post-page" post.slug %}">
         <div class="card  mb-3">
@@ -11,6 +12,6 @@
                 <h4 class="card-title">{{ post.title }}</h4>
                 <p class="card-text">{{ post.excerpt }}</p>
             </div>
-        </div><!-- /.card -->
+        </div>
     </a>
-</div><!-- /.col-sm-4 -->
+</div>

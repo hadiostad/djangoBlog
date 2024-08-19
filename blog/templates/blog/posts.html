@@ -10,10 +10,11 @@
         <h3>All Posts</h3>
         <div class="container">
             <div class="row">
+                {% comment %} Renders a list of the latest posts {% endcomment %}
                 {% for post in all_posts %}
                     {% include 'blog/includes/post.html' %}
                 {% endfor %}
-            </div><!-- /.row -->
-        </div><!-- /.container -->
+            </div>
+        </div>
     </section>
 {% endblock %}
